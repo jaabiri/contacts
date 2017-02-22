@@ -7,7 +7,7 @@ const api = "https://randomuser.me/api/?results=50&nat=gb";
 
 class App extends Component {
   state = {
-    users: []
+    users: {}
   };
   componentDidMount() {
     fetch(api)
@@ -15,12 +15,25 @@ class App extends Component {
       .then(parsedResponse => parsedResponse.results.map(user => ({
         name: `${user.name.first} ${user.name.last}`,
         email: user.email,
-        thumbnail: user.picture.thumbnail
+        thumbnail: user.picture.thumbnail,
+        phone:user.phone
       })))
       .then(arrnotri => {
-        return arrnotri.sort(function(a, b) {
-          return a.name.localeCompare(b.name);
-        });
+        return arrnotri
+          .sort(function(a, b) {
+            return a.name.localeCompare(b.name);
+          })
+          .reduce(
+            (acc, val) => {
+              if (!acc[val.name[0]]) {
+                acc[val.name[0]] = [val];
+              } else {
+                acc[val.name[0]].push(val);
+              }
+              return acc;
+            },
+            {}
+          );
       })
       .then(users => this.setState({ users }));
   }
@@ -28,13 +41,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <Contacts users={this.state.users} />
       </div>
     );

@@ -1,13 +1,16 @@
 import React from 'react';
+import "./../App.css";
 
 const SearchBar = (props) => {
     const handelChange = function(e){
          props.change(e)
     }
     return (
-        <div> 
+        <div className="navbar"> 
             
-             <input type="text" onChange={handelChange}/>
+             
+            <input type="text" className="search" onChange={handelChange} placeholder="search"/>
+             <i id="fa"className="fa fa-search fa-3" aria-hidden="true"></i>
         </div>
     );
 };

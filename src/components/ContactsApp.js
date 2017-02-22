@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SearchBar from "./SearchBar"
 import ContactList from "./ContactList"
+import "./../App.css";
 
 class Contacts extends Component {
 
@@ -17,6 +18,7 @@ class Contacts extends Component {
     render() {
         return (
             <div>
+                 
                  <SearchBar change={this.handleChange.bind(this)} />
                  <ContactList users={this.props.users} filter={this.state.filter}/>
                  
