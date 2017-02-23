@@ -53,16 +53,35 @@ body{
      font-family: 'Roboto', sans-serif;
 }
 .container{
-     padding: 15px;
+     
      background-color: whitesmoke;
      height: 100vh;
 }
 .header{
-     background: url(https://static.pexels.com/photos/313032/pexels-photo-313032.jpeg);
+     background: url(https://static.pexels.com/photos/274060/pexels-photo-274060.jpeg);
      background-size: cover;
      height: 500px;
      position:relative;
      box-shadow: 3px 3px 3px #888888;
+}
+.menu{
+     display: inline-block;
+     width:5px;
+     height: 5px;
+     border-radius: 50%;
+     background-color: white;
+     box-shadow: 0 10px 0 white,0 -10px 0 white;
+     margin-left:50px;
+
+}
+.right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+}
+.right{
+     text-align: center;
 }
 .data{
      position:absolute;
@@ -70,25 +89,28 @@ body{
      right: 0;
      left: 0;
      height: 350px;
-     background-color:snow;
-     padding-top: 35px;
+     background-color:white;
+     padding-top: 40px;
       
 }
 .profile{
      position: absolute;
-     width:50px;
-     height: 50px;
+     width:60px;
+     height: 60px;
      border-radius: 50%;
-     top:-25px;
-     left:25vh;
+     top:-30px;
+     text-align: center;
+     transform: translateX(-50%);
+     left:50%;
      border: 4px solid white;
      display: flex;
      justify-content: center;
      align-items: center;
+    
 }
 img{
-     max-width: 46px;
-     max-height: 46px;
+     max-width: 56px;
+     max-height: 56px;
      border-radius: 50%;
 }
 .userinfo{
