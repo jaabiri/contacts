@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SearchBar from "./SearchBar"
 import ContactList from "./ContactList"
+import LoadingHOC from './HOC/Load'
+
 import "./../App.css";
 
 class Contacts extends Component {
@@ -20,11 +22,11 @@ class Contacts extends Component {
             <div>
                  
                  <SearchBar change={this.handleChange.bind(this)} />
-                 <ContactList users={this.props.users} filter={this.state.filter}/>
-                 
+                 <ContactList users={this.props.users} filter={this.state.filter} handlfavoris={this.props.handlfavoris}/>
+                 <h1>{this.props.loadingTime}</h1>
             </div>
         );
     }
 }
 
-export default Contacts;
+export default LoadingHOC(Contacts);

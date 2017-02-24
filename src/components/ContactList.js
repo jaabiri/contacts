@@ -4,6 +4,7 @@ import "./../App.css";
 
 const ContactsLists = props => {
   let filterobject = [];
+  
   Object.keys(props.users).map(letter => {
     props.users[letter]
       .filter(item => item.name.indexOf(props.filter) !== -1)
@@ -27,6 +28,7 @@ const ContactsLists = props => {
                       email={obj.email}
                       image={obj.thumbnail}
                       phone={obj.phone}
+                      handlfavoris={props.handlfavoris}
                     />
                   ))}
                 </li>
@@ -40,6 +42,7 @@ const ContactsLists = props => {
                   email={obj.email}
                   image={obj.thumbnail}
                   phone={obj.phone}
+                  handlfavoris={props.handlfavoris}
                 />
               </li>
             ))}

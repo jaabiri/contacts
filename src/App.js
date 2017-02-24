@@ -9,6 +9,9 @@ class App extends Component {
   state = {
     users: {}
   };
+    handlefavoris(prop,e){
+       console.log(prop)
+    }
   componentDidMount() {
     fetch(api)
       .then(response => response.json())
@@ -41,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Contacts users={this.state.users} />
+        <Contacts users={this.state.users} handlfavoris={this.handlefavoris.bind(this)} />
       </div>
     );
   }
