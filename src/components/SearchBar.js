@@ -10,7 +10,7 @@ const SearchBar = (props) => {
             
              
             <input type="text" className="search" onChange={handelChange} placeholder="Search"/>
-             <i id="fa"className="fa fa-search fa-3" aria-hidden="true"></i>
+             <i id="fa"className="fa fa-search fa-4" aria-hidden="true"></i>
         </div>
     );
 };
