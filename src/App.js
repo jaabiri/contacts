@@ -10,7 +10,8 @@ class App extends Component {
     users: {}
   };
     handlefavoris(prop,e){
-       console.log(prop)
+       console.log(prop);
+       (e.target.style.color === "red") ? e.target.style.color = "black" : e.target.style.color ="yellow";
     }
   componentDidMount() {
     fetch(api)
@@ -44,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Contacts users={this.state.users} handlfavoris={this.handlefavoris.bind(this)} />
+        <Contacts users={this.state.users}  handlfavoris={this.handlefavoris.bind(this)} />
       </div>
     );
   }
