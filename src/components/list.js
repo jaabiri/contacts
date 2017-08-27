@@ -12,7 +12,7 @@ const List = (props) => {
               <h5> {props.name} </h5>
               <h6>{props.phone}</h6>
          </div> 
-          <i className="fa fa-star" aria-hidden="true"  className={this.isActive('')} onClick={(e)=>handlefav(props,e)}></i>
+          <i className="fa fa-star" aria-hidden="true"  onClick={(e)=>handlefav(props,e)}></i>
         </div>
     );
 };
