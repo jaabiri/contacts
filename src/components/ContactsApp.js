@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
 import SearchBar from "./SearchBar"
+import { connect } from "react-redux";
+import {handleUser} from '../actions/actionsCreator'
 import ContactList from "./ContactList"
 import LoadingHOC from './HOC/Load'
 
 import "./../App.css";
-
 class Contacts extends Component {
 
    state={
       filter:"" 
    }
+   componentDidMount() {
+    this.props.fetchUsers()
+    
+  }
   handleChange(e){
       console.log(e.target.value)
           this.setState({
@@ -18,6 +23,7 @@ class Contacts extends Component {
   }
 
     render() {
+        console.log('this.props', this.props)
         return (
             <div>
                  
@@ -29,4 +35,16 @@ class Contacts extends Component {
     }
 }
 
-export default LoadingHOC(Contacts);
+const mapStateToProps = (state)=>{
+     console.log(state);
+     return {
+          users: state.Users
+     }
+}
+const mapDispatchToProps = (dispatch)=>{
+     return {
+          fetchUsers: ()=>dispatch(handleUser())
+     }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contacts);
